@@ -1,0 +1,23 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+package SomeClass;
+
+sub new
+{
+	bless {}, shift;
+}
+
+sub some_method
+{
+	return "bar";
+}
+
+package main;
+
+my $object = new SomeClass;
+
+my $string = "foo@{[$object->some_method]}";
+
+print $string, "\n";

@@ -1,0 +1,66 @@
+#! /usr/local/bin/perl
+use warnings;
+use strict;
+
+package Node;
+
+sub new
+{
+        bless {
+                prev => undef,
+                next => undef,
+                number => 0,
+        }, shift;
+}
+
+sub prev
+{
+        my $self = shift;
+
+        $self->{prev} = shift if @_;
+
+        $self->{prev};
+}
+
+sub next
+{
+        my $self = shift;
+
+        $self->{next} = shift if @_;
+
+        $self->{next};
+}
+
+sub number
+{
+        my $self = shift;
+
+        $self->{number} = shift if @_;
+
+        $self->{number};
+}
+
+package main;
+
+{
+        my $first;
+        my $node;
+        my $prevnode = undef;
+        for my $number (1 .. 741) {
+                $node = Node->new;
+                $node->prev($prevnode);
+                $node->number($number);
+
+                $first ||= $node;
+
+                $prevnode = $node;
+        }
+
+        for(my $thing = $node; defined $thing; $thing=$thing->prev) {
+                print $thing->number, " ";
+        }
+
+        print "\n";
+}
+
+print "I'm not crashed yet!\n";

@@ -1,0 +1,11 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+my $var = 3;
+
+print $var, "\n";
+
+BEGIN {
+	$var = 1 + 1;
+};

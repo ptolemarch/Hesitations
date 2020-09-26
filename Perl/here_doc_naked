@@ -1,0 +1,12 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+sub hello {
+<<'EOF';
+Foursquare and eight hopscotches ago, our foreheads pushed forth a
+section of the wall.
+EOF
+}
+
+print hello;

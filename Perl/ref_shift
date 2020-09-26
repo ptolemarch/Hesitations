@@ -1,0 +1,13 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+
+sub foo
+{
+	my $monkeyref = \ shift;
+
+	print $$monkeyref, "\n";
+}
+
+foo "monkey";
+

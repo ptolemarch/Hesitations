@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+
+package Gerbil;
+
+print "yo\n";
+
+package main;
+
+no strict 'refs';
+my $vh = \%{"Gerbil::VirtualHost"};
+$vh = $vh->{wooga} = {};
+
+$vh->{q} = 1;
+$vh->{p} = 3;
+use strict 'refs';
+
+package Gerbil;
+
+our %VirtualHost;
+print %{$VirtualHost{wooga}}, $/;

@@ -1,0 +1,21 @@
+#! /usr/bin/env perl
+
+use strict;
+use warnings;
+
+# check an issue of precedence before I correct a co-worker's code
+
+my $filename_insufficient_permissions = '/etc/sudoers';
+
+#open my $file, '<', $filename_insufficient_permissions || die "bet I don't die";
+#while(<$file>) {
+#    print ":: $_";
+#}
+#close $file || die "maybe here tho";
+
+
+open my $otherfile, '<', $filename_insufficient_permissions or die "I correctly die here";
+while(<$otherfile>) {
+    print ":: $_";
+}
+close $otherfile || die "maybe here tho";

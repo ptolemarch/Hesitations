@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+print "third\n";
+&hide;
+
+BEGIN
+{
+	print "first\n";
+}
+
+sub hide
+{
+	print "fourth\n";
+
+	BEGIN
+	{
+		print "second\n";
+	}
+}

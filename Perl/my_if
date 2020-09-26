@@ -1,0 +1,14 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+
+our ($one, $two);
+
+my $car = "Toyota\n" if $one;
+
+if ($two) {
+	my $horse = "Mr. Ed\n";
+}
+
+print $car;
+#print $horse;

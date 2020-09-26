@@ -1,0 +1,22 @@
+#! /usr/bin/env perl
+
+use warnings;
+no strict 'subs';
+
+# this bareword is obviously bad:
+# (triggers warning)
+print STDOUT yourmom, "\n";
+
+# what about this one?
+# (doesn't trigger warning)
+print STDOUT Yourmom, "\n";
+
+use strict 'subs';
+
+# this bareword is obviously bad:
+# (compile-time error)
+print STDOUT yourmom, "\n";
+
+# what about this one?
+# (compile-time error)
+print STDOUT Yourmom, "\n";

@@ -1,0 +1,18 @@
+#! /usr/local/bin/perl
+use warnings;
+use strict;
+
+use Math::BigInt;
+use Posix qw( atoi );
+
+my @strings = (
+    '1234567890',
+    '1234567890 is not a number'
+);
+
+for my $string (@strings) {
+    print "$string ------\n";
+    print Math::BigInt->new($string)->bsstr(), "\n";
+    print Math::BigInt->new($string)->bsqrt()->bsstr(), "\n";
+    print (($string+0)-1, "\n");
+}

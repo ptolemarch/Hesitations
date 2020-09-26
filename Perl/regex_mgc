@@ -1,0 +1,29 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+
+my $foo = "pig dogie dog";
+
+print pos($foo), "\n";
+
+$foo =~ m/dog/g;
+print pos($foo), "\n";
+print substr($foo, pos($foo), 1), "\n";
+
+$foo =~ m/cat/g;
+print pos($foo), "\n";
+
+$foo =~ m/dog/g;
+print pos($foo), "\n";
+
+pos($foo) = 0;
+print pos($foo), "\n";
+
+$foo =~ m/dog/cg;
+print pos($foo), "\n";
+
+$foo =~ m/cat/cg;
+print pos($foo), "\n";
+
+$foo =~ m/dog/cg;
+print pos($foo), "\n";

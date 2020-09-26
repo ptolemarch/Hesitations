@@ -1,0 +1,45 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+use 5.16.0;
+
+my %blargh;
+$blargh{autovivify_me}{key}
+    = "hashref";
+say $blargh{autovivify_me}{key};
+
+my %blargher;
+$blargher{autovivify_me}{me_too}{me_three}{key}
+    = "hashref of hashref";
+say $blargher{autovivify_me}{me_too}{me_three}{key};
+
+my %even_blargher;
+$blargher{also_autovivify_me}[9]
+    = "arrayref";
+say $blargher{also_autovivify_me}[9];
+
+my %still_blargher;
+$still_blargher{also_autovivify_me}[88]{me_three}
+    = "arrayref of hashref";
+say $still_blargher{also_autovivify_me}[88]{me_three};
+
+# works but huge, so takes a while
+my %yet_more_blargh;
+$yet_more_blargh{also_autovivify_me}{me_too}[1337]{me_four}[0xDEADBEEF]
+    = "hashref of arrayref of hashref of arrayref";
+say $yet_more_blargh{also_autovivify_me}{me_too}[1337]{me_four}[0xDEADBEEF];
+
+my %blargh_blargh_blargh;
+say $blargh_blargh_blargh{your_mom}{is_a_very}{nice_person};
+say "still here?";
+
+my $not_this_tho = undef;
+$not_this_tho->{die} = "hurk";
+say $not_this_tho->{die};
+say "STILL here?";
+
+no strict 'refs';  # won't work without this, so there's that...
+my $surely_not_this = 9;
+$surely_not_this->{die} = "hurk";
+say $surely_not_this->{die};
+say "Dear Christ."

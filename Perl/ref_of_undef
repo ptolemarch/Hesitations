@@ -1,0 +1,10 @@
+#! /usr/bin/env perl
+
+use 5.20.0;
+use warnings;
+
+my $nope;
+my $yep = \"blargh";
+
+say "[" . (ref $nope) . "]";
+say "[" . (ref $yep ) . "]";

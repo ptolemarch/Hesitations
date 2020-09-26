@@ -1,0 +1,38 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+package JoMama;
+sub new {
+	my $class = shift;  $class = ref($class) || $class;
+
+	bless { $class->proto }, $class;
+}
+
+sub proto {
+	my $class = shift;  $class = ref($class) || $class;
+	my %proto;
+
+	$proto{'skip'}	= "to my loo";
+
+	return %proto;
+}
+
+package MyMama;
+our @ISA = qw| JoMama |;
+sub proto {
+	my $class = shift;  $class = ref($class) || $class;
+	my %proto = $class->SUPER::proto;
+
+	$proto{'run'}	= "yes";
+
+	return %proto;
+}
+
+package main;
+
+my $jo_mama = new JoMama;
+my $my_mama = new MyMama;
+
+print $jo_mama->proto, "\n";
+print $my_mama->proto, "\n";

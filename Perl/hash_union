@@ -1,0 +1,10 @@
+#! /usr/local/bin/perl
+use warnings;
+use strict;
+
+my %tea = ( a => 1, b => 2, c => 3 );
+my %pot = ( b => 2, c => 3, pl => 4 );
+
+my @keys = keys %{ %tea, %pot }; 
+
+print @keys, "\n";

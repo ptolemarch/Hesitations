@@ -1,0 +1,69 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+package AtLeastMakeItChallenging;
+
+sub match {
+	$_[0] =~ m/($_[1])/g;
+
+	print $1;
+}
+
+package OkayNowMakeItReallyDifficult;
+
+sub getpos {
+	print pos($_[0]), "\n";
+}
+
+package ThisWontWork;
+
+sub match {
+	my $var = shift;
+	my $re = shift;
+	$var =~ m/($re)/g;
+
+	print $1;
+}
+
+sub getpos {
+	my $var = shift;
+	print pos($var), "\n";
+}
+
+package WhatIfWeUseReferences;
+
+sub match {
+	my $var = shift;
+	my $re = shift;
+	$$var =~ m/($re)/g;
+
+	print $1;
+}
+
+sub getpos {
+	my $var = shift;
+	print pos($$var), "\n";
+}
+
+package main;
+
+my $var = "hello, world!\n";
+
+AtLeastMakeItChallenging::match $var, "o,";
+OkayNowMakeItReallyDifficult::getpos $var;
+
+# And it works.  Beautiful.
+
+pos($var)=0;
+
+ThisWontWork::match $var, "o,";
+ThisWontWork::getpos $var;
+
+# Nein.  My hypothesis is correct.  That's fine; aliases aren't a huge
+#   price to pay.
+
+pos($var)=0;
+
+WhatIfWeUseReferences::match \$var, "o,";
+WhatIfWeUseReferences::getpos \$var;

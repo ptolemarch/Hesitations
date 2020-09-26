@@ -1,0 +1,9 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+print <<'ONE', "  how are you?\n", <<'TWO';
+  hello!
+ONE
+  goodbye!
+TWO

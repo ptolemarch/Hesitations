@@ -1,0 +1,19 @@
+#! /usr/local/bin/perl
+use warnings;
+use strict;
+use 5.14.0;
+
+use Data::Dumper;
+
+my $urls = [qw[
+    http://davidhand.com/
+    http://ptolemar.ch/
+    http://ptlmr.ch/
+]];
+
+my @form;
+push @form, ( 'hub.mode' => 'publish' );
+# push @form, ( 'hub.url'  => $url      ) for my $url (@$urls); # does not work
+push @form, ( 'hub.url'  => $_        ) for @$urls;
+
+print Dumper \@form;

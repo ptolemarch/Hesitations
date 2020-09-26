@@ -1,0 +1,28 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+my $hour = "yesyesyesyesyes";
+our $hour = "nonononono";
+my $day = "blah";
+
+print $hour, "\n";
+
+package one;
+our $hour = "do";
+
+print $day, "\n";
+
+package two;
+our $hour = "re";
+
+package three;
+our $hour = "mi";
+
+package main;
+
+print $hour;
+print $main::hour, "\n";
+print $one::hour, "\n";
+print $two::hour, "\n";
+print $three::hour, "\n";

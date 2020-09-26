@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+sub hide
+{
+	my @array = @{ +shift };
+
+	print join('!', @array), "\n";
+}
+
+my @array = qw| hello little teapot |;
+
+&hide(\@array);

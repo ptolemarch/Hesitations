@@ -1,0 +1,19 @@
+#! /usr/local/bin/perl
+
+sub q { }
+
+print <<'EOF';
+asfldkj
+EOF
+
+print <<q,EOF,;
+asfldkj
+q
+
+print"a ",<<'',"and a ",<<"","and a ",<<heh
+one
+
+two
+
+three
+heh

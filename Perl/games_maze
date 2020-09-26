@@ -1,0 +1,19 @@
+#! /usr/local/bin/perl -w
+use strict;
+use warnings;
+
+use Games::Maze;
+
+my $m1 = Games::Maze->new();
+my $m2 = Games::Maze->new(dimensions => [12,7,2]);
+my $m3 = Games::Maze->new(
+                dimensions => [10,10,1],
+                cell => 'Quad',
+);
+
+$m3->make();
+#$m3->solve();
+print $m3->to_ascii();
+print $m3->to_hex_dump();
+
+my %maze_attr = $m1->describe();

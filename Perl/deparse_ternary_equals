@@ -1,0 +1,15 @@
+#! /usr/bin/perl
+
+use strict;
+use warnings;
+use 5.16.0;
+
+my($cache_hit, $cached_value, $expensive_lookup)
+ =( 1        , "already knew", "had to look"   )
+ ;
+
+my $blargh = $cache_hit
+           ? $cached_value
+           : $cached_value = $expensive_lookup;
+
+print $blargh;

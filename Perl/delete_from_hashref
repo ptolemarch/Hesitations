@@ -1,0 +1,43 @@
+#! /usr/local/bin/perl
+
+# seems you can delete from a hashref just fine
+
+use warnings;
+use strict;
+
+my %hash = (
+	key => 'value',
+	other_key => 'other_value',
+);
+my $hash_ref = \%hash;
+
+sub print_keys
+{
+    print "(", join(", ", keys %{$_[0]}), ");\n";
+}
+
+print_keys(\%hash);
+
+# this should puke
+delete $hash_ref->{key};
+# but it doesn't
+print_keys(\%hash);
+
+package Grr;
+use warnings;
+use strict;
+
+sub new
+{
+    return bless {}; # bite me
+}
+
+package main;
+use warnings;
+use strict;
+
+$hash{object_ref} = Grr->new();
+print_keys(\%hash);
+
+delete $hash_ref->{object_ref};
+print_keys(\%hash);

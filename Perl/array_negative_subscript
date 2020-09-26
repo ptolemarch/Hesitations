@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @two = qw| a b c d |;
+
+print $two[-2], $/;

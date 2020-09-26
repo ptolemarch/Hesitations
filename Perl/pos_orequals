@@ -1,0 +1,12 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+
+my $string = "The quick brown fox jumped over the lazy dog.";
+my $strref = \$string;
+
+print pos($string), "\n";
+
+pos($$strref) ||= 0;
+
+print pos($string), "\n";

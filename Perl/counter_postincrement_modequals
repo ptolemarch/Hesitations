@@ -1,0 +1,15 @@
+#! /usr/bin/env perl
+use 5.20.1;
+use warnings;
+
+my $EVERY = 50;
+my @ARRAY = (1) x 2000;
+
+# the idea is: print a progress bar, but increment only every so often
+
+print STDERR 'Progress: ';
+my $counter;
+for (@ARRAY) {
+	print STDERR "#" if ($counter %= 50)++;
+}
+print STDERR "\n";

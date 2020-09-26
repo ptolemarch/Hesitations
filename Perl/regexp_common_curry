@@ -1,0 +1,21 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+
+use Regexp::Common;
+
+my $regexp = \%RE;
+
+#        $RE{num}{int}{-sep=>'.'}{-group=>4}    # match 1.2345.6789
+for (qw/ num int -sep=>'.' -group=>4 /) {
+        $regexp = $regexp->{$_};
+}
+
+print $regexp, "\n";
+
+my $tokenre = $RE{num}{int}{-sep=>','}{-group=>3};  # match 1,234,567
+
+for (qw/ 1000 100 100,000 /) {
+        print, print "\n" if /$tokenre/;
+}
+

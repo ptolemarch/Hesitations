@@ -1,0 +1,117 @@
+--- |
+ ACCOUNT_NO,ACCOUNT_CREATED,FIRST_NAME,LAST_NAME,EMAIL_ADDR,PHONE_NO,ADDRESS,CITY,STATE,CANON_COUNTRY,ZIP,BILLING_FIRST_NAME,BILLING_LAST_NAME,BILLING_EMAIL,BILLING_PHONE_NO,BILLING_ADDRESS,BILLING_CITY,BILLING_STATE,BILLING_COUNTRY,BILLING_ZIP,BDOM,PAYMENT_TERM_DESC,PAYMENT_METHOD,NAME,DEBIT_EXP,NAME_1,SUBSCRIPTION_START_T,SUBSCRIPTION_END_T,STATUS
+ 020-955905,7-Apr-15,Eric,Engstrom,eric@keelingassociates.com,HOME:6465101728,55 Harry Kemp Way,Provincetown,Massachusetts,US,02657-1618,Erc,Engstrom,eric@keelingassociates.com,HOME:6465101728,55 Harry Kemp Way,Provincetown,Massachusetts,US,02657-1618,7,NET_0,Credit Card,urn:uuid:093a6c5b-8c19-4638-8f14-440787ef40c3,420,Cloud Sites Hosting Account_256640,7-Apr-15,,ACTIVE
+---
+source_metadata:
+  - source_id: 955905
+    source: CloudSites
+    :key: accnt
+    '{}':
+        account:
+          - accnt:: 1
+            account_status: active
+            activation_date: 2015-04-07
+            cycle: monthly
+            priority: normal
+            referred_by: ''
+        accnt_auth:
+          - accnt:: 1
+            auth_role_id: 1                   # WDTCF ?
+            auth_type_id: 2                   # WDTCF ?
+        accounts_to_traits:
+          - accnt:: 1
+            trait: OriginCloudSites
+        accnt_payment_info:
+          - accnt:: 1
+            merchant: liquidweb
+        account_billing_state:
+          - accnt:: 1
+            next_bill_date: 2017-03-07
+            next_visit_date: 2017-03-07
+            last_bill_date: 2017-02-07
+            last_visit_date: 2017-02-07
+        owner_relation:
+          - owner_id:: 1
+            type: 0
+            :key: id
+            '{}':
+                contacts:
+                  - address: 55 Harry Kemp Way
+                    city: Provincetown
+                    contact_role_id: 1        # WDTCF ?
+                    country: US
+                    fname: Erc
+                    lname: Engstrom
+                    postal_code: 02657-1618
+                    state: Massachusetts
+                    :key: id
+                    '{}':
+                        billing_contacts:
+                          - contact_id:: 1
+                            owner_rel_id:: 2
+                            type_id: 1        # WDTCF ?
+                        contact_phones:
+                          - contact_id:: 1
+                            number: 6465101728
+                            type: 1           # WDTCF ?
+                        contact_emails:
+                          - contact_id:: 1
+                            address: eric@keelingassociates.com
+                            type: 0           # WDTCF ?
+                notification:
+                  - owner_rel_id:: 1
+                    category: Manage Important Notifications
+                    description: |-
+                        The support passphrase is used to verify your identity over the phone and in chats.
+                        You can change the passphrase at any time from the account page.
+                    public: 1                 # WDTCF ?
+                    resolved: 0               # WDTCF ?
+                    severity: Notification
+                    system: CredentialUpdate
+                    system_identifier: 1      # WDTCF ?
+        subaccnt:
+          - paccnt:: 1
+            type: CloudSites.Legacy
+            :key: uniq_id
+            '{}':
+                change_order:
+                  - uniq_id:: 1
+                    accnt:: 2
+                    subaccnt_type: CloudSites.Legacy
+                    event: Subaccnt-add
+                    nonreporting_account: 0 # false
+                    amount: 257.20000          # WDTCF ?
+                    accnt_mrc_post: 0.00000    # WDTCF ?
+                    accnt_mrc_pre: 0.00000     # WDTCF ?
+                    subaccnt_mrc_post: 0.00000 # WDTCF ?
+                    subaccnt_mrc_pre: 0.00000  # WDTCF ?
+                  - uniq_id:: 1
+                    accnt:: 2
+                    subaccnt_type: CloudSites.Legacy
+                    event: Subaccnt-activate
+                    description: LW::Subaccnt->changeStatus
+                    nonreporting_account: 0 # false
+                    amount: 257.20000            # WDTCF ?
+                    accnt_mrc_post: 257.20000    # WDTCF ?
+                    accnt_mrc_pre: 0.00000       # WDTCF ?
+                    subaccnt_mrc_post: 257.20000 # WDTCF ?
+                    subaccnt_mrc_pre: 0.00000    # WDTCF ?
+        subaccnt:
+          - paccnt:: 1
+            type: CloudSites.Legacy
+            :key: id
+            '{}':
+                owner_relation:
+                  - owner_id:: __2__:__1__
+                    type: 1
+                    :key: id
+                    '{}':
+                        products:
+                          - product_code: CloudSites.Legacy
+                            :key: id
+                            '{}':
+                                subaccnt_base_product:
+                                  - owner_rel_id:: 2
+                                    product_id:: 1
+                                    price: 150.00000
+                                    price_time_unit_id: 1  # WDTCF ?

@@ -1,0 +1,9 @@
+#! /usr/local/bin/perl
+
+use feature qw| say |;
+
+my $sentence = "I'm a little teapot, short and stout!";
+
+for my $word ($sentence =~ m/(\w+)/g) {
+    say $word;
+}

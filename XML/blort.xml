@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE cc:page SYSTEM "/Users/cogent/src/cleverclient/public/cleverclient/ccml.dtd">
+<cc:page>
+        <cc:head>
+                <cc:title> Boring Page &smiley; </cc:title>
+                <cc:link ref="/florp"> Some Other Page </cc:link>
+        </cc:head>
+        <cc:body>
+                <cc:code sub="" args="">
+                        <cc:arg name=""> </cc:arg>
+                </cc:code>
+                <cc:info>
+                        <cc:title> Some HTML </cc:title>
+                        <cc:html>
+                                <p>
+                                florp
+                                </p>
+                        </cc:html>
+                </cc:info>
+                <cc:form>
+                        <cc:title>
+                                Guns &amp; Butter &snowman; vs. Time
+                        </cc:title>
+                        <cc:column id="fy" type="year"
+                         sortable="true" filterable="true">
+                                <cc:title> FY </cc:title>
+                        </cc:column>
+                        <cc:column id="guns" type="number"
+                         sortable="true" filterable="false">
+                                <cc:title> Guns </cc:title>
+                        </cc:column>
+                        <cc:column id="butter" type="number"
+                         sortable="true" filterable="false">
+                                <cc:title> Butter </cc:title>
+                        </cc:column>
+                </cc:form>
+        </cc:body>
+</cc:page>

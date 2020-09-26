@@ -1,0 +1,21 @@
+#! /usr/local/bin/perl
+
+use warnings;
+use strict;
+
+# a file called "foo.bar" in the directory where you are when you run the
+#   program
+my $filename = "./foo.bar";
+
+# open the file.  The second argument '<' means "open for reading".
+open my $filehandle, '<', $filename
+    or die "can't open $filename: $!";
+
+while (my $line = <$filehandle>) {
+    # do something or other with $line
+    $line =~ tr/a-zA-Z/n-za-mN-ZA-M/;
+    print $line;
+}
+
+close $filehandle
+    or die "can't close $filename: $!";

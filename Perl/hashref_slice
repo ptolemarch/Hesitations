@@ -1,0 +1,27 @@
+#! /usr/bin/env perl
+use warnings;
+use 5.20.0;
+
+my %days = qw|
+    sunday    0
+    monday    1
+    tuesday   2
+    wednesday 3
+    thursday  4
+    friday    5
+    saturday  6
+|;
+
+my $days_ref = \%days;
+
+my @days = qw| monday wednesday friday |;
+my @numbers = @days{@days};
+
+say @numbers;
+
+my @numbers_again = @{$days_ref}{@days};
+
+say @numbers_again;
+
+# nope
+#print join "\n", $wordsref->[ 1..3 ];

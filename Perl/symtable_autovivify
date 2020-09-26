@@ -1,0 +1,16 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+sub diabolic {
+	no strict 'refs';
+	push @{shift() . "::" . shift}, shift;
+}
+
+
+diabolic "main", "color", "red";
+diabolic "main", "color", "green";
+diabolic "main", "color", "blue";
+
+our @color;
+print @color, "\n";

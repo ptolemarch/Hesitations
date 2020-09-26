@@ -1,0 +1,29 @@
+#! /usr/local/bin/perl
+use warnings;
+use strict;
+
+package Simian;
+
+sub eat
+{
+        Banana->peel();
+}
+
+package Monkey;
+our @ISA = qw| Simian |;
+
+package Banana;
+
+sub peel
+{
+        my $self = shift;
+
+        my ($package, $filename, $line) = caller;
+
+        print "$package, $filename, $line\n";
+}
+
+package main;
+
+Monkey->eat();
+

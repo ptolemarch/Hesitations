@@ -1,0 +1,12 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+
+my $aye = "blurgh /* COMMENT!  AAUGH!  RUN FOR YOUR LIVES! */ /* arf */ wooga";
+my $nay = "blurgh wooga";
+my @matches;
+
+#$nay =~ m#(?:(/\*([^*]|\*[^/])*\*/(?{push @matches, $1}))[^/]*)*#;
+$aye =~ m#(?:(?:(/\*([^*]|\*[^/])*\*/)(?{push @matches, $1}))[^/]*)+#;
+
+print(scalar @matches, " match(es): \n", join("\n", @matches), "\n");

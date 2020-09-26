@@ -1,0 +1,5 @@
+#!/bin/sh
+exec scala $0 $@
+!#
+// Say hello to the first argument
+args.foreach(arg => println(arg))

@@ -1,0 +1,25 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+use Benchmark;
+
+my $string = "And then I said, 'Hello, there.'.";
+
+my $regex = qr/\G(then)\G(.?)/ox;
+pos $string = 4;
+
+print "yes, $1\n" if $string =~ m/$regex(?!$regex)/cg;
+
+__END__
+my $regex_bare          = qr/(and)/i;
+my $regex_clothed       = qr/and/i;
+
+timethese (10_000_000, {
+        'bare'          => sub {
+                pos $string = 0; $string =~ /\G$regex_bare/cg;
+        },
+        'clothed'       => sub {
+                pos $string = 0; $string =~ /\G($regex_clothed)/cg;
+        },
+});

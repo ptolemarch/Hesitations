@@ -1,0 +1,28 @@
+#! /usr/bin/env perl
+use 5.20.0;
+use warnings;
+use experimental qw( postderef );
+
+package PerlMongers::Detroit;
+
+our @meeting;
+my @attendees;
+
+sub whozat
+{
+	my $ordinal = shift;
+
+	say "attendees:";
+	say $_ for $meeting[$ordinal]->@*;
+}
+
+push @meeting, \@attendees;
+
+package main;
+
+my $name = "David Hand";
+
+push $PerlMongers::
+Detroit::meeting[0]->@*, $name;
+
+PerlMongers::Detroit::whozat(0);

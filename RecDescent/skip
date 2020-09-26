@@ -1,0 +1,11 @@
+#! /usr/bin/perl -w
+use strict;
+use Parse::RecDescent;
+
+my $parser = Parse::RecDescent->new(<<'FORK');
+gerbil :  'snarf' conjunction { print "$thisoffset\n"; } glorf(s)
+conjunction:  'woo' | 'hurf'
+glorf: { print "$thisoffset\n"; } 'lar'
+FORK
+
+$parser->gerbil("snarf woo         lar  lar");

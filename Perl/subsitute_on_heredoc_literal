@@ -1,0 +1,14 @@
+#! /usr/bin/env perl
+
+use warnings;
+use strict;
+
+use 5.20.0;
+
+#print (<<FOO =~ s/^\s+//);  # nope
+#        hello there
+#FOO
+
+print (<<FOO =~ s/^\s+//r);  # but s///r works, of course
+        hello there
+FOO

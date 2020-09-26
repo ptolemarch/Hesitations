@@ -1,0 +1,13 @@
+#! /usr/bin/env perl
+
+use 5.22.0;
+
+use carp;
+
+use Strict;
+use Warnings;
+
+
+$blargh = "some test string";
+
+say $blargh;

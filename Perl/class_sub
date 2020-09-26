@@ -1,0 +1,14 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+package Gerbil;
+
+sub SpiderMonkey
+{
+	print "Yay!\n";
+}
+
+package main;
+
+"Gerbil"->SpiderMonkey;

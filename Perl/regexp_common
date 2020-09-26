@@ -1,0 +1,34 @@
+#! /usr/bin/perl -s
+use warnings;
+no warnings qw/uninitialized/;
+use strict;
+
+use Regexp::Common qw|pattern|;
+
+pattern (
+        name => [qw|teapot monkey -monocode=argh -unicode=argh|],
+        create => sub {
+                my ($self, $flags, $name) = @_;
+
+                warn "absent options are undef"
+                    unless defined $flags->{-monocode};
+                warn "defaults apply to *absent* options"
+                    if $flags->{-monocode} eq "argh";
+
+                warn "present but unset options are undef"
+                    unless defined $flags->{-unicode};
+                warn "defaults apply to *present but unset* options"
+                    if $flags->{-unicode} eq "argh";
+
+                qq{(?k:teapot\|monkey)};
+        },
+        matches => sub {
+                my ($self, $str) = @_;
+
+                warn $self;
+
+                print "arguments: ", @{$self->{args}}, "\n";
+        }
+);
+
+my $monkeyre = "$RE{teapot}{monkey}{-unicode}";

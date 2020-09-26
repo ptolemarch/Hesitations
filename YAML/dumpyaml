@@ -1,0 +1,15 @@
+#! /usr/bin/env perl
+
+use 5.20.0;
+use warnings;
+
+use YAML::XS qw( LoadFile );
+
+use Data::Printer colored => 1;
+for my $doc (LoadFile shift) {
+    warn ref $doc;
+    p $doc;
+}
+
+#use Data::Dumper qw( Dumper );
+#print Dumper LoadFile shift;

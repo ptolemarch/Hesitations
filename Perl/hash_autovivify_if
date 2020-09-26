@@ -1,0 +1,13 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+my %blargh = (
+	monkey	=>	"hello",
+	wooga	=>	"goodbye",
+);
+
+print "yes" if $blargh{"thwap"};
+print keys %blargh, "\n";
+if ($blargh{"thwap"}) { print "yes" }
+print keys %blargh, "\n";

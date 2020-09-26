@@ -1,0 +1,12 @@
+#! /usr/bin/env perl
+use warnings;
+use strict;
+
+my @words = qw| eenie meenie miney moe |;
+
+my $wordsref = \@words;
+
+print join "\n", @$wordsref[1 .. 3];
+
+# nope
+#print join "\n", $wordsref->[ 1..3 ];

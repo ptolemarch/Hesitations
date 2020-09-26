@@ -1,0 +1,37 @@
+<!--
+        CleverClient Markup Language
+
+        For user-generated content.
+ -->
+<!ELEMENT page          (title, link*, (info | form)*)>
+<!ATTLIST page          id      ID      #IMPLIED>
+
+<!ELEMENT title         (#PCDATA)>
+<!ATTLIST title         id      ID      #IMPLIED
+                        valign  (center | top | bottom) "center"
+                        halign  (center | left | right) "center"
+>
+
+<!ELEMENT link          (#PCDATA)>
+<!ATTLIST link          id      ID      #IMPLIED
+                        ref     CDATA   #REQUIRED
+>
+
+<!ELEMENT info          (title, literal)>
+<!ATTLIST info          id      ID      #IMPLIED>
+<!ELEMENT literal       ANY>
+
+<!ELEMENT form          (title, column+)>
+<!ATTLIST form          id      ID      #IMPLIED>
+
+<!ELEMENT column        (title)>
+<!ATTLIST column        id              ID              #IMPLIED
+                        sortable        NMTOKEN         "0"
+                        filterable      NMTOKEN         "0"
+                        type            NMTOKENS        #IMPLIED
+                        valign  (center | top | bottom) "center"
+                        halign  (center | left | right) "center"
+>
+
+<!ENTITY  smiley        "&#x263A;">
+<!ENTITY  snowman       "&#x2603;">

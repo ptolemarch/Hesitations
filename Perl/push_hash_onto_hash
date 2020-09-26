@@ -1,0 +1,31 @@
+#! /usr/local/bin/perl
+
+use warnings;
+use strict;
+
+my (%r, %s);
+
+my @numbers = qw(
+    pagh
+    wa'
+    cha'
+    wej
+    loS
+    vagh
+    jav
+    Soch
+    chorgh
+    Hut
+);
+
+print(join("\n", @numbers), "\n");
+
+# I'm just screwing around, here
+my $i = 0;
+for my $number (@numbers) {
+    $s{$number} = $i++;
+}
+
+push %r, %s;  # nope, and actually now I realize why not
+
+print %r, %s;

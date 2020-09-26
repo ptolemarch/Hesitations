@@ -1,0 +1,5 @@
+#! /usr/local/bin/perl
+
+@ar1 = qw(foo bar);
+@ar2 = qw(a b c d);
+print scalar (@ar1, @ar2);

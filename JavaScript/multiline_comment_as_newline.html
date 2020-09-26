@@ -1,0 +1,32 @@
+<html>
+<head>
+<script>
+function foo ()
+{
+	return /* this is not equivalent to a newline */ "foo!";
+}
+
+function bar ()
+{
+	return /* this IS equivalent to a newline */
+"bar!";
+}
+
+function baz ()
+{
+	return /* this is not
+equivalent to a newline */ "baz!";
+}
+
+/* and everything is as it should be */
+
+alert (foo());
+alert (bar());
+alert (baz());
+</script>
+<script>
+</script>
+</head>
+<body>
+</body>
+</html>

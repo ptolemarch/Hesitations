@@ -1,0 +1,10 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+
+sub blah
+{
+	print scalar;
+}
+
+&blah(1,2,3);

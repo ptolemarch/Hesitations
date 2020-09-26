@@ -1,0 +1,11 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+use Carp;
+
+my $monkey = "gerbil";
+
+$monkey =~ /(?{ carp "regex must be defined" })/;
+
+print "didn't work\n";

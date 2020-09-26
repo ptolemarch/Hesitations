@@ -1,0 +1,43 @@
+#! /usr/bin/env perl
+use 5.20.1;
+use warnings;
+
+say "package: " . __PACKAGE__;
+
+package Outer {
+	say "package: " . __PACKAGE__;
+
+    sub alpha
+    {
+        say "Outer Alpha!"
+    }
+
+    sub beta
+    {
+        say "Outer Beta!"
+    }
+
+    sub gamma
+    {
+        say "Outer Gamma!"
+    }
+
+	package Inner {
+		say "package: " . __PACKAGE__;
+		
+		sub alpha
+		{
+            say "Inner Alpha!"
+		}
+
+        #gamma();  # nope
+	}
+
+    gamma();
+}
+
+Outer::alpha();
+Inner::alpha();
+Outer::beta();
+#Inner::beta();  # nope
+#gamma();  # nope

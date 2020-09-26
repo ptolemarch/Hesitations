@@ -1,0 +1,12 @@
+#! /usr/local/bin/perl
+
+use 5.10.0;
+
+use warnings;
+use strict;
+
+given ("monkey") {
+    when (/^m/) { say "here" }
+    default { say "no" }
+    say "yes";
+}

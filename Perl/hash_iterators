@@ -1,0 +1,20 @@
+#! /usr/local/bin/perl
+
+%foo = (
+        a => 1,
+        b => 2,
+        c => 3,
+        x => 1,
+        y => 2,
+        z => 3,
+);
+
+print each %foo, "\n";
+print each %foo, "\n";
+
+*bar = \%foo;
+
+print %foo, "\n";
+
+print each %bar, "\n";
+print each %bar, "\n";

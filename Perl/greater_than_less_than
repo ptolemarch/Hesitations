@@ -1,0 +1,34 @@
+#! /usr/local/bin/perl
+use warnings;
+use strict;
+
+use 5.12.0;
+
+my $lower = 20;
+my $upper = 80;
+
+# this gives syntax errors, but in any case, of course this won't work: the
+# return value for < > <= >= is a boolean, so the first inequality evaluated
+# (doesn't matter which, and it's academic anyway, since it's a syntax error)
+# would return the appropriate boolean, which the second inequality would have
+# a boolean as one of its arguments, which would be nonsense.
+
+for (1..100) {
+	say "no" unless $lower < $_ < $upper;
+	say "yes"    if $lower < $_ < $upper;
+}
+
+for (1..100) {
+	say "no" unless $lower > $_ > $upper;
+	say "yes"    if $lower > $_ > $upper;
+}
+
+for (1..100) {
+	say "no" unless $lower <= $_ <= $upper;
+	say "yes"    if $lower <= $_ <= $upper;
+}
+
+for (1..100) {
+	say "no" unless $lower >= $_ >= $upper;
+	say "yes"    if $lower >= $_ >= $upper;
+}

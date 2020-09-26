@@ -1,0 +1,25 @@
+--- >
+"ACCOUNT_NO","ACCOUNT_CREATED","FIRST_NAME","LAST_NAME","EMAIL_ADDR","ADDRESS","CITY","STATE","CANON_COUNTRY","ZIP","BILLING_FIRST_NAME","BILLING_LAST_NAME","BILLING_EMAIL","BILLING_ADDRESS","BILLING_CITY","BILLING_STATE","BILLING_COUNTRY","BILLING_ZIP","BDOM","PAYMENT_TERM_DESC","PAYMENT_METHOD","NAME","DEBIT_EXP","NAME_1","SUBSCRIPTION_START_T","SUBSCRIPTION_END_T","STATUS"
+"020-810511",18-MAR-13,"Kristie","Rodriguez","KRISTIE.RODRIGUEZ@RACKSPACE.COM","5000 WALZEM RD","WINDCREST","Texas","US","78218-2117","Kristie","Rodriguez","KRISTIE.RODRIGUEZ@RACKSPACE.COM","5000 WALZEM","SAN ANTONIO","Texas","US","78218",18,"NET_0","Credit Card","urn:uuid:3926f677-9771-4787-87d1-150e35856b5e","0513","Rackspace Employees Site Plan_222733",18-MAR-13,"18-MAR-13","CANCELLED"
+"020-810511",18-MAR-13,"Kristie","Rodriguez","KRISTIE.RODRIGUEZ@RACKSPACE.COM","5000 WALZEM RD","WINDCREST","Texas","US","78218-2117","Kristie","Rodriguez","KRISTIE.RODRIGUEZ@RACKSPACE.COM","5000 WALZEM","SAN ANTONIO","Texas","US","78218",18,"NET_0","Credit Card","urn:uuid:3926f677-9771-4787-87d1-150e35856b5e","0513","Rackspace Employees Site Plan_2249",18-MAR-13,"","ACTIVE"
+--- 
+source_metadata:
+    - source_id: 810511
+      source: CloudSites
+      :key: accnt
+      _:
+          account:
+              - accnt:: 1
+                account_status: active
+                activation_date: 2013-03-18
+                cycle: monthly
+                priority: normal
+                :key: accnt
+                _:
+                    subaccnt:
+                        - accnt:: 1
+                          type: foo
+                        - accnt:: 1
+                          type: bar
+                        - accnt:: 1
+                          type: baz

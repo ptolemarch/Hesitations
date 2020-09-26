@@ -1,0 +1,23 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+use Switch;
+
+{
+	my %blurgh = (
+		hair => 'red',
+		eyes => 'blue'
+	);
+
+	sub blurgh
+	{
+		return \%blurgh;
+	}
+}
+
+my $attrib = 'hair';
+
+switch ($attrib) {
+	case {keys %{blurgh()}}	{ print "Ja\n" }
+	else			{ print "Nein\n" }
+}

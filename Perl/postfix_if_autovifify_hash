@@ -1,0 +1,11 @@
+#! /usr/bin/env perl
+
+use 5.20.0;
+
+my %hash;  # no keys
+my $hashref = \%hash;
+
+$hash{foo} = 1 if 0;
+$hashref->{bar} = 1 if 0;
+
+say join ' ', keys %hash;

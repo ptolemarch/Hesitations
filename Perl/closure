@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+{
+	no strict 'refs';
+	for my $vegetable (qw| cabbage carrot eggplant|) {
+		*{ __PACKAGE__ . "::$vegetable" } = sub {
+			print "I eat my $vegetable with a " . shift() . "!\n";
+		}
+	}
+}
+
+&cabbage('fork');
+&carrot('spoon');
+&eggplant('hacksaw');

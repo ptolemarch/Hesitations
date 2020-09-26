@@ -1,0 +1,14 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+*BEGIN = sub {
+	print "Jo mama!\n";
+};
+
+sub BEGIN
+{
+	print "Yo.\n";
+}
+
+&BEGIN;

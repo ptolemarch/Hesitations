@@ -1,0 +1,42 @@
+#! /usr/local/bin/perl
+
+use warnings;
+use strict;
+use 5.14.0;
+
+my %foo = (
+    apple => 'I like stuff',
+    banana => 3,
+    carrot => ":-)",
+);
+
+#say $foo{carrot};
+
+#for my $key (keys %foo) {
+#    say "$key : $foo{$key}";
+#}
+#
+#my @bar = (
+#    "la la la",
+#    "dashing through the snow",
+#    "blargh",
+#    "I'm a little teapot!",
+#);
+#
+#for my $i (0..(@bar-1)) {
+#    say "$bar[$i]";
+#}
+
+my @test = (1, 2, 3);
+
+say @test;
+
+my @result;
+for (my $j = 0; $j < @test; $j++) {
+    $result[$j] = $test[$j] + $test[$j];
+}
+
+say @test;
+say @result;
+
+say (@test, @test);

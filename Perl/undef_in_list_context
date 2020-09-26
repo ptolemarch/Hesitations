@@ -1,0 +1,16 @@
+#! /usr/bin/env perl
+use 5.20.1;
+use warnings;
+
+# sometimes David is the stickler
+# but this time it's Kevin
+say "FUCKED_IF_I_KNOW: ", delete $ENV{FUCKED_IF_I_KNOW};
+say "BEATS_THE_SHIT_OUT_OF_ME: ", delete $ENV{BEATS_THE_SHIT_OUT_OF_ME};
+
+sub notverylikely {
+	return $ENV{FUCKED_IF_I_KNOW} || $ENV{BEATS_THE_SHIT_OUT_OF_ME};
+}
+
+my @not_a_hash_thingy = ( key => notverylikely() );
+
+say "NUMBER OF not-hash-thingies IS: ", scalar @not_a_hash_thingy;

@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my @one = ();
+my @two = (0, 0, 0);
+my @three = (0);
+
+print "one:", @one, "\n" if @one;
+print "two:", @two, "\n" if @two;
+print "three:", @three, "\n" if @three;
+
+
+
+unshift @one, shift @three;
+print "one again:", @one, "\n" if @one;
+print "three again:", @three, "\n" if @three;

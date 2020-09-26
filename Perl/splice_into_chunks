@@ -1,0 +1,29 @@
+#! /usr/bin/env perl
+use warnings;
+use 5.20.0;
+
+my $CHUNK_SIZE = 5;
+
+# uglier, working from the end
+{
+    my @lcs = ('a' .. 'z');
+
+    my $chunk = 0;
+    # ugly...
+    while (my @chunk = splice @lcs, (@lcs < $CHUNK_SIZE ? -(scalar @lcs) : -5))
+    {
+        say "chunk: ", ++$chunk;
+        say while $_ = pop @chunk;
+    }
+}
+
+# prettier, working from the beginning
+{
+    my @lcs = ('a' .. 'z');
+
+    my $chunk = 0;
+    while (my @chunk = splice @lcs, 0, $CHUNK_SIZE) {
+        say "chunk: ", ++$chunk;
+        say while $_ = shift @chunk;
+    }
+}

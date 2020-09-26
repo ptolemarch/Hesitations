@@ -1,0 +1,13 @@
+#! /usr/bin/perl -s
+use warnings;
+use strict;
+
+no strict 'refs';
+@{"Urp::Monkey::ISA"} = qw| Urp::Simian |;
+
+sub Urp::Simian::hello
+{
+	print "eep!";
+}
+
+"Urp::Monkey"->hello;

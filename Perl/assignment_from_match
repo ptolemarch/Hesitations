@@ -1,0 +1,23 @@
+#! /usr/local/bin/perl
+
+use 5.10.0;
+
+my @numbers = qw(
+	1
+	one
+	won
+	2
+	two
+	to
+	too
+	3
+	three
+    4chan
+    Da5id
+);
+
+for my $number (@numbers) {
+	my($clean)= ($number =~ /^(\d+)$/); $clean //= 0;
+
+	say $clean;
+}

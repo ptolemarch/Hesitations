@@ -1,0 +1,21 @@
+#! /usr/local/bin/perl
+use warnings;
+use strict;
+
+my %lalala = (
+    one => 'foo',
+    two => 'bar',
+    three => 'baz',
+);
+my $blargh;
+
+print "subscript is unassigned: $lalala{$blargh}\n";
+
+$blargh = '';
+print "subscript is '': $lalala{$blargh}\n";
+
+$blargh = 'one';
+print "subscript is 'one': $lalala{$blargh}\n";
+
+$blargh = undef;
+print "subscript is undef: $lalala{$blargh}\n";

@@ -1,0 +1,12 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+package Gerbil;
+
+our $ice = "cold\n";
+
+package main;
+
+no strict 'refs';
+print ${"Gerbil::ice"};

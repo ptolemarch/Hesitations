@@ -1,0 +1,14 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+my $var = "hello\n";
+
+my $ref = \$var;
+
+$$ref =~ m/(l)/g;
+
+print $1;
+
+print $var;
+print $$ref;

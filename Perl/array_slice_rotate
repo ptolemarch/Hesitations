@@ -1,0 +1,26 @@
+#! /usr/local/bin/perl
+use warnings;
+use strict;
+use 5.14.0;
+
+# this is to generate a round-robin tournament schedule
+
+my @array = qw( a b c d e f g h );
+
+my $ref = \@array;
+
+for (my $i = 0; $i < @$ref-1; $i++) {
+    my @half1 = @{$ref}[1    .. $i     ];
+    my @half2 = @{$ref}[$i+1 .. $#$ref];
+
+    say $i+1, ": ", $ref->[0], @half2, @half1;
+}
+__END__
+
+for (my $i = 0; $i < @array-1; $i++) {
+    my @half1 = @array[0    .. $i     ];
+    my @half2 = @array[$i+1 .. $#array];
+
+    say @half2, @half1;
+}
+

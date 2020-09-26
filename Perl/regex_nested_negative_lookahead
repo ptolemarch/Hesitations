@@ -1,0 +1,8 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+my $monkey = "hello";
+
+print "yes\n" if $monkey =~ /^(?!hell(?!o))[a-z]+/;
+print "yes\n" if $monkey =~ /^(?!hell(?!a))[a-z]+/;

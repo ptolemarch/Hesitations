@@ -1,0 +1,49 @@
+#!/usr/bin/perl -l
+use warnings;
+use strict;
+
+print "not yet";
+&hide;
+
+END
+{
+    print "last";
+}
+
+BEGIN
+{
+    print "first";
+    BEGIN
+    {
+	print "zerost?"  # in-order, but nested BEGIN
+    }
+    print "second";
+    END
+    {
+	END 
+	{
+	    print "second from last";  # in-order, but nested END
+	}
+	print "third from last";
+    }
+}
+
+END
+{
+    print "fourth from last"
+}
+
+sub hide
+{
+	print "now";
+
+	BEGIN
+	{
+		print "third";  # simply in-order
+	}
+}
+
+BEGIN
+{
+    print "fourth";
+}

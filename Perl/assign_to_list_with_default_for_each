@@ -1,0 +1,18 @@
+#! /bin/env perl
+
+use warnings;
+use strict;
+
+use 5.10.1;
+
+my $flag = shift // 0;
+my $if_present_one = shift // '';
+my $if_present_two = shift // '';
+
+my ( $x                        ,  $y                        )
+= $flag
+? ( ($if_present_one || "one") , ($if_present_two || "two") )
+: (                     "one"  ,                     "two"  )
+;
+
+say "x: [$x]\ny: [$y]";

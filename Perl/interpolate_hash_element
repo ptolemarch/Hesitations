@@ -1,0 +1,14 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+my %hash = (
+        monkey => 1,
+        rabbit => 2,
+);
+
+my $hashref = \%hash;
+
+my $string = "monkey: $hash{monkey}, rabbit: $hashref->{rabbit}";
+
+print $string, "\n";

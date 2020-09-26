@@ -1,0 +1,18 @@
+#! /usr/bin/env perl
+use 5.20.1;
+use warnings;
+
+my @array = qw( alpha beta gamma delta epsilon );
+my @more = qw( zeta eta theta iota kappa );
+
+my %hash;
+
+@hash{@array} = (1) x @array;
+
+say join "\n", keys %hash;
+say join "\n", values %hash;
+
+@hash{@more} = (2) x @more;
+
+say join "\n", keys %hash;
+say join "\n", values %hash;

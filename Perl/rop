@@ -1,0 +1,96 @@
+#! /usr/local/bin/perl
+use warnings;
+
+# Taken from POE::Preprocessor.
+
+use strict;
+
+### Start of regexp optimizer.
+
+# text_trie_trie is virtually identical to code in Ilya Zakharevich's
+# Text::Trie::Trie function.  The minor differences involve hardcoding
+# the minimum substring length to 1 and sorting the output.
+
+sub text_trie_trie {
+  my @list = @_;
+  return shift if @_ == 1;
+  my (@trie, %first);
+
+  foreach (@list) {
+    my $c = substr $_, 0, 1;
+    if (exists $first{$c}) {
+      push @{$first{$c}}, $_;
+    }
+    else {
+      $first{$c} = [ $_ ];
+    }
+  }
+
+  foreach (sort keys %first) {
+    # Find common substring
+    my $substr = $first{$_}->[0];
+    (push @trie, $substr), next if @{$first{$_}} == 1;
+    my $l = length($substr);
+    foreach (@{$first{$_}}) {
+      $l-- while substr($_, 0, $l) ne substr($substr, 0, $l);
+    }
+    $substr = substr $substr, 0, $l;
+
+    # Feed the trie.
+    @list = map {substr $_, $l} @{$first{$_}};
+    push @trie, [$substr, text_trie_trie(@list)];
+  }
+
+  @trie;
+}
+
+# This is basically Text::Trie::walkTrie, but it's hardcoded to build
+# regular expressions.
+
+sub text_trie_as_regexp {
+  my @trie   = @_;
+  my $num    = 0;
+  my $regexp = '';
+
+  foreach (@trie) {
+    $regexp .= '|' if $num++;
+    if (ref $_ eq 'ARRAY') {
+      $regexp .= $_->[0] . '(?:';
+
+      # If the first tail is empty, make the whole group optional.
+      my ($tail, $first);
+      if (length $_->[1]) {
+        $tail  = ')';
+        $first = 1;
+      }
+      else {
+        $tail  = ')?';
+        $first = 2;
+      }
+
+      # Recurse into the group of tails.
+      if ($#$_ > 1) {
+        $regexp .= text_trie_as_regexp( @{$_}[$first .. $#$_] );
+      }
+      $regexp .= $tail;
+    }
+    else {
+      $regexp .= $_;
+    }
+  }
+
+  $regexp;
+}
+
+### End of regexp optimizer.
+
+my @strings = qw( zero one two three four five six seven eight nine
+                  ten eleven twelve thirteen fourteen fifteen sixteen
+                  seventeen eighteen nineteen twenty
+                );
+
+print "input: (@strings)\n\n";
+
+my $regexp = text_trie_as_regexp(text_trie_trie(@strings));
+
+print "regexp: /$regexp/\n";

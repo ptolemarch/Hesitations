@@ -1,0 +1,13 @@
+#! /usr/bin/perl
+use warnings;
+use strict;
+
+print <<'EOF' if 1;
+'alo
+EOF
+print <<'EOF' unless 0;
+g'bye
+EOF
+print <<'EOF' if 0;
+'alo 'gain
+EOF
